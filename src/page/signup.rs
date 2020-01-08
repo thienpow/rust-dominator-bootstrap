@@ -7,7 +7,7 @@ use crate::routing::Route;
 
 
 pub struct SignupPage {
-  //navbar_isopen: Mutable<bool>,
+    
 }
 
 impl SignupPage {
@@ -15,35 +15,39 @@ impl SignupPage {
     pub fn new() -> Rc<Self> {
 
         Rc::new(Self {
-            //navbar_isopen: Mutable::new(false),
             
         })
     }
 
 
     pub fn render(state: Rc<Self>) -> Dom {
-        lazy_static! {
-            /*
-            static ref FIXED_TOP: String = class! {
-                .style("position", "fixed")
-                .style("max-height", "60px")
-                .style("top", "0px")
-                .style("right", "0px")
-                .style("left", "0px")
-                .style("z-index", "1030")
-            };
-            */
-        }
-
         html!("div", {
-            .visible_signal(Route::signal().map(move |x| x==Route::Pricing))
-            .style("height", "1200px")
-            .style("color", "white")
-            .text("signup here.")
-            //.children(&mut [
+            .class(["page-header", "page-header-medium", "bg-dark"])
+            .visible_signal(Route::signal().map(move |x| x==Route::Signup))
+            .style("height", "850px")
+            .children(&mut [
+
+                html!("div", {
+                    .class(["content-center", "container-autoscale"])
+                    .children(&mut [
+                        html!("div", {
+                            .class("title-brand")
+                            .children(&mut [
+                                html!("h1", {
+                                    .class("presentation-title")
+                                    .text("Signup")
+                                }),
+                            ])
+                        }),
+                        html!("h2", {
+                            .class(["presentation-subtitle", "text-center"])
+                            .text("Just a bootstrap demo. Might add in extra demo feature here.")
+                        })
+                    ])
+                }),
 
 
-            //])
+            ])
         })
     }
 }

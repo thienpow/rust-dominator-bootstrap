@@ -71,6 +71,7 @@ impl App {
                                 Route::Signup => vec![
                                     SignupPage::render(state.signup_page.clone()),
                                     html!("div", {
+                                        .style("color", "white")
                                         .text("Signup!")
                                     })
                                 ]
